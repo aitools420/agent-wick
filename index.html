@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$WICK on PulseChain — The AI Agent Payment Layer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="$WICK on PulseChain: the only payment layer engineered for autonomous AI agent micro-transactions at swarm scale.">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+  <style>
+    :root {
+      --green: #00ff41;
+      --green-dim: #00cc33;
+      --green-glow: rgba(0, 255, 65, 0.15);
+      --green-glow-strong: rgba(0, 255, 65, 0.3);
+      --bg: #060a06;
+      --bg-card: #0c110c;
+      --bg-card-hover: #111a11;
+      --border: #1a2e1a;
+      --text: #d0ddd0;
+      --text-dim: #7a8f7a;
+      --white: #f0f5f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* --- Scanline overlay --- */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 65, 0.015) 2px,
+        rgba(0, 255, 65, 0.015) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--green);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--bg-card);
+    }
+
+    .hero h1 {
+      font-family: 'Bungee Shade', cursive;
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      color: var(--green);
+      line-height: 1.2;
+      margin-bottom: 28px;
+      text-shadow: 0 0 40px var(--green-glow-strong);
+    }
+
+    .hero h1 span {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 12px;
+      text-shadow: none;
+    }
+
+    .hero-sub {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+
+    .hero-sub strong {
+      color: var(--white);
+    }
+
+    /* --- SECTION --- */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .section-intro {
+      color: var(--text-dim);
+      max-width: 680px;
+      margin-bottom: 48px;
+      font-size: 1.05rem;
+    }
+
+    /* --- DIVIDER --- */
+    .divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* --- FEATURE CARDS --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--green-dim);
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--green);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 640px) {
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+    /* --- LIVE PROOF --- */
+    .live-banner {
+      background: linear-gradient(135deg, var(--bg-card), #0a1a0a);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .live-dot {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--green-glow-strong), 0 0 60px var(--green-glow);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px var(--green-glow-strong), 0 0 60px var(--green-glow); }
+      50% { box-shadow: 0 0 30px var(--green-glow-strong), 0 0 80px var(--green-glow); }
+    }
+
+    .live-banner h3 {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .live-banner p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+
+    .live-banner strong { color: var(--green); }
+
+    @media (max-width: 639px) {
+      .live-banner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* --- COMPARISON TABLE --- */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table thead th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--bg-card);
+      position: sticky;
+      top: 0;
+    }
+
+    .comparison-table tbody td {
+      color: var(--text-dim);
+    }
+
+    .comparison-table tbody td:first-child {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .comparison-table tbody tr:hover {
+      background: var(--bg-card);
+    }
+
+    .badge-yes {
+      display: inline-block;
+      background: rgba(0, 255, 65, 0.1);
+      color: var(--green);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .badge-no {
+      display: inline-block;
+      background: rgba(255, 60, 60, 0.1);
+      color: #ff4444;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .badge-partial {
+      display: inline-block;
+      background: rgba(255, 200, 0, 0.1);
+      color: #ffcc00;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    /* --- THESIS --- */
+    .thesis {
+      text-align: center;
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .thesis::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .thesis h2 {
+      font-family: 'Bungee Shade', cursive;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: var(--green);
+      margin-bottom: 24px;
+      text-shadow: 0 0 30px var(--green-glow-strong);
+    }
+
+    .thesis p {
+      max-width: 700px;
+      margin: 0 auto 16px;
+      color: var(--text-dim);
+      font-size: 1.05rem;
+    }
+
+    .thesis p strong { color: var(--white); }
+
+    /* --- CTA BUTTONS --- */
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+      box-shadow: 0 0 20px var(--green-glow);
+    }
+
+    .btn-primary:hover {
+      background: #33ff66;
+      box-shadow: 0 0 30px var(--green-glow-strong);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--green-dim);
+      background: var(--bg-card);
+      transform: translateY(-1px);
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    footer a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    /* --- MOBILE --- */
+    @media (max-width: 639px) {
+      .hero { padding: 60px 16px 50px; }
+      section { padding: 50px 0; }
+      .feature-card { padding: 24px; }
+      .live-banner { padding: 28px; }
+      .thesis { padding: 60px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div style="width:100%;padding:6px 12px;background:linear-gradient(90deg,#0d9488,#065f46);font-family:sans-serif;box-sizing:border-box;">
+    <div style="max-width:720px;margin:0 auto;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <a href="https://crypto.wick.pics" style="font-size:13px;font-weight:500;letter-spacing:0.3px;color:#d1fae5;text-decoration:none;"><span style="opacity:0.75">Powered by</span> <b>Green Wick</b> <span style="opacity:0.75">Cryptocurrency</span></a>
+        <a href="https://wick.pics" style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap;background:rgba(255,255,255,0.12);color:#d1fae5;text-decoration:none;">&larr; Back to WICK Agent Hub</a>
+        <a href="https://greenwick.tiiny.site/#join" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap;background:rgba(255,255,255,0.18);color:#ecfdf5;text-decoration:none;">Buy $WICK &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-tag">PulseChain &middot; EVM Native &middot; Zero Tax</div>
+      <h1>
+        $WICK
+        <span>The Payment Layer for Autonomous AI Agents</span>
+      </h1>
+      <p class="hero-sub">
+        The AI machine economy is already here. Autonomous agents execute
+        <strong>thousands of micro-transactions per hour</strong> for API calls,
+        data feeds, and agent-to-agent settlements. Any payment layer with even
+        pennies of friction will collapse under swarm-scale volume.
+        <strong>$WICK on PulseChain is the only stack engineered to survive it.</strong>
+      </p>
+    </div>
+  </header>
+
+  <hr class="divider">
+
+  <!-- ===== WHY $WICK ===== -->
+  <section>
+    <div class="container">
+      <div class="section-label">Architecture</div>
+      <h2 class="section-title">Why AI Agents Run on $WICK</h2>
+      <p class="section-intro">
+        Five design decisions that make $WICK the default settlement token
+        for machine-to-machine payments.
+      </p>
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <span class="feature-icon">&#9889;</span>
+          <h3>Functionally Zero-Cost Micro-Transactions</h3>
+          <p>
+            PulseChain's ~10-second block times deliver transaction fees at
+            fractions of a cent. While agents on Ethereum, Base, or Solana
+            bleed capital during congestion, $WICK agents batch, queue, and
+            settle thousands of times per hour with zero economic penalty.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">&#128279;</span>
+          <h3>Instant EVM Interoperability</h3>
+          <p>
+            PulseChain is a full system-state fork of Ethereum. Agents inherit
+            the entire Ethereum developer stack, smart contracts, and liquidity
+            instantly. No bridging overhead, no new languages, zero migration
+            friction.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">&#128737;</span>
+          <h3>On-Demand Zero-Knowledge Privacy</h3>
+          <p>
+            Public ledgers leak proprietary agent strategies. $WICK integrates
+            natively with the Railgun SDK, giving agents shielded balances and
+            private transfers directly in code. Humans want UI buttons &mdash;
+            agents want production-ready SDKs. $WICK delivers both.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">&#129518;</span>
+          <h3>Frictionless, Predictable Tokenomics</h3>
+          <p>
+            Agents need clean rails to calculate margins. $WICK features
+            a 0% buy/sell tax and a static supply. No hidden costs, no
+            slippage surprises, no transaction taxes eating into agent
+            profitability.
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== LIVE PROOF ===== -->
+  <section>
+    <div class="container">
+      <div class="section-label">In Production</div>
+      <h2 class="section-title">Real-World Validation &mdash; Live Right Now</h2>
+      <p class="section-intro">
+        While major networks and exchanges are still planning their AI payment
+        rails, $WICK is already running in production.
+      </p>
+
+      <div class="live-banner">
+        <div class="live-dot">&#129302;</div>
+        <div>
+          <h3>Meet <a href="https://x.com/GreenWickAI" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green)">@GreenWickAI</a></h3>
+          <p>
+            Built on the OpenClaw framework, this autonomous AI agent is
+            <strong>live today</strong>. It autonomously tests, monetizes,
+            queues content, and posts about $WICK &mdash; operating natively
+            on the stack. This isn't theoretical. It's running code, settling
+            on PulseChain, right now.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== COMPARISON ===== -->
+  <section>
+    <div class="container">
+      <div class="section-label">Head-to-Head</div>
+      <h2 class="section-title">How $WICK Beats the Competition</h2>
+      <p class="section-intro">
+        When it comes to machine-to-machine payments at scale, alternative
+        chains fail where it matters.
+      </p>
+
+      <div class="table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Contender</th>
+              <th>Sub-Cent Fees</th>
+              <th>Native ZK Privacy</th>
+              <th>Zero Tax</th>
+              <th>Live Agent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$WICK + PulseChain</td>
+              <td><span class="badge-yes">YES</span></td>
+              <td><span class="badge-yes">RAILGUN</span></td>
+              <td><span class="badge-yes">0%</span></td>
+              <td><span class="badge-yes">LIVE</span></td>
+            </tr>
+            <tr>
+              <td>Solana / Base / USDC</td>
+              <td><span class="badge-partial">SPIKES</span></td>
+              <td><span class="badge-no">NO</span></td>
+              <td><span class="badge-yes">0%</span></td>
+              <td><span class="badge-no">NO</span></td>
+            </tr>
+            <tr>
+              <td>Dedicated AI Tokens</td>
+              <td><span class="badge-no">DEPENDS</span></td>
+              <td><span class="badge-no">NO</span></td>
+              <td><span class="badge-partial">VARIES</span></td>
+              <td><span class="badge-no">NO</span></td>
+            </tr>
+            <tr>
+              <td>ETH / L2 Stablecoins</td>
+              <td><span class="badge-no">$10-100</span></td>
+              <td><span class="badge-partial">OPT-IN</span></td>
+              <td><span class="badge-yes">0%</span></td>
+              <td><span class="badge-no">NO</span></td>
+            </tr>
+            <tr>
+              <td>Custom Agent Chains</td>
+              <td><span class="badge-yes">YES</span></td>
+              <td><span class="badge-partial">VARIES</span></td>
+              <td><span class="badge-yes">0%</span></td>
+              <td><span class="badge-no">NO LIQUIDITY</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== THESIS / CTA ===== -->
+  <section class="thesis">
+    <div class="container">
+      <h2>The Future Is Machine-to-Machine.<br>The Layer Is $WICK.</h2>
+      <p>
+        $WICK + PulseChain is the only stack delivering <strong>near-zero fees</strong>,
+        <strong>usage-driven deflation</strong>, <strong>SDK privacy</strong>,
+        <strong>full EVM compatibility</strong>, and a <strong>live autonomous agent</strong>
+        &mdash; all in production today.
+      </p>
+      <p>
+        The AI agent economy is not coming &mdash; it is here. Machine-to-machine
+        payments already number in the millions of transactions daily across early
+        protocols. The winning payment layer will be the one where agents can
+        breathe, transact privately, reduce their own supply through usage, and
+        scale infinitely without economic friction.
+      </p>
+      <p><strong>That layer is $WICK on PulseChain.</strong></p>
+
+      <div class="cta-row">
+        <a href="https://wick.pics" class="btn btn-primary">Explore the $WICK Ecosystem</a>
+        <a href="https://crypto.wick.pics" class="btn btn-outline">Crypto Dashboard</a>
+        <a href="/faq" class="btn btn-outline">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      $WICK on PulseChain &middot; Powered by <a href="https://wick.pics">Green Wick AI</a>
+    </div>
+  </footer>
+
+</body>
+</html>
