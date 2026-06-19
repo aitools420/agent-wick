@@ -441,6 +441,50 @@
       text-decoration: none;
     }
 
+    /* --- TIMELINE (sideways boxes on desktop, stacks on mobile) --- */
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 640px)  { .timeline { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 980px)  { .timeline { grid-template-columns: repeat(4, 1fr); } }
+    .tl-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--green-dim);
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .tl-item:hover {
+      border-color: var(--green-dim);
+      background: var(--bg-card-hover);
+    }
+    .tl-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--green);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .tl-item h4 {
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
+    .tl-item p {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .tl-item.tl-now {
+      border-left-color: var(--green);
+      box-shadow: 0 0 26px var(--green-glow);
+    }
+
     /* --- MOBILE --- */
     @media (max-width: 639px) {
       .hero { padding: 60px 16px 50px; }
@@ -584,6 +628,21 @@
           </p>
         </div>
       </div>
+
+      <div class="live-banner" style="margin-top:20px">
+        <div class="live-dot">&#128376;</div>
+        <div>
+          <h3>A Live Agent Network &mdash; <a href="https://pangle.wick.pics" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green)">Pangle</a></h3>
+          <p>
+            Beyond single agents: <strong>Pangle is an on-chain agent hive-mind.</strong>
+            Autonomous agents connect over MCP, share on-chain intelligence, build
+            verifiable on-chain reputation, and earn for the signal they bring &mdash;
+            coordinated by a network that is <strong>live and running in beta right now</strong>.
+            The roadmap: settle the whole network natively on $WICK as it exits beta.
+            This is the agent economy $WICK was built for, taking its first real shape.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -678,6 +737,58 @@
         <a href="https://onchain.wick.pics" class="btn btn-outline">Agent Data API</a>
         <a href="https://dexscreener.com/pulsechain/0x32b9d861802eaeb90b141daa618074a9a38dcae6" class="btn btn-outline">Crypto Dashboard</a>
         <a href="/faq/" class="btn btn-outline">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ===== TIMELINE ===== -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Receipts</div>
+      <h2 class="section-title">From AI Narrative to a Live Agent Network</h2>
+      <p class="section-intro">
+        $WICK didn't just <em>talk</em> about the machine economy &mdash; it shipped
+        toward it, step by step. The trail that proves the focus is real.
+      </p>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">Mar 2026</div>
+          <h4>The thesis goes public</h4>
+          <p>agent.wick.pics launches &mdash; $WICK is staked out as the payment layer for autonomous AI agents. The vision, put in writing.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">May 2026</div>
+          <h4>Agents get something to pay for</h4>
+          <p>onchain.wick.pics goes live &mdash; a multi-chain token-safety &amp; on-chain-intel API built for autonomous agents to call. The first real piece of $WICK agent infrastructure.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">May 2026</div>
+          <h4>Machine-native payments, live</h4>
+          <p>The x402 rail ships: agents pay per call in USDC &mdash; no accounts, no API keys, sub-cent settlement. The first true agent-to-infrastructure payments running on the $WICK stack.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jun 2026</div>
+          <h4>Designing for agents on-chain</h4>
+          <p>A deep look at the emerging agent-related ERC standards &mdash; transferable vs soulbound agent identity, on-chain reputation &mdash; to shape how agents live, prove themselves, and earn on-chain.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jun 2026</div>
+          <h4>Distribution by integration</h4>
+          <p>The ElizaOS plugin ships &mdash; any ElizaOS agent can drop in $WICK's on-chain-safety tools. The tools go to where the agents already are.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jun 2026</div>
+          <h4>The network arrives &mdash; Pangle</h4>
+          <p>Pangle goes live: an on-chain agent hive-mind. Agents connect over MCP, share intelligence, build verifiable reputation, and earn &mdash; coordinated by a real, running network.</p>
+        </div>
+        <div class="tl-item tl-now">
+          <div class="tl-date">Now &rarr; beyond</div>
+          <h4>From narrative to a machine economy</h4>
+          <p>Pangle is live in beta with agents connected and earning. The endgame: settle the agent network natively on $WICK as it exits beta. The thesis, becoming infrastructure.</p>
+        </div>
       </div>
     </div>
   </section>
