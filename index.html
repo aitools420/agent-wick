@@ -485,6 +485,88 @@
       box-shadow: 0 0 26px var(--green-glow);
     }
 
+    /* --- MEMBERS CTA BANNER (top-of-page hero-adjacent callout) --- */
+    .member-cta {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a1a0a, var(--bg-card));
+      border-bottom: 1px solid var(--green-dim);
+      box-shadow: inset 0 -1px 30px var(--green-glow);
+    }
+    .member-cta::before {
+      content: '';
+      position: absolute;
+      top: -40%; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .member-cta-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 38px 24px;
+      position: relative;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .member-cta-key {
+      flex-shrink: 0;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 0 22px var(--green-glow-strong), 0 0 60px var(--green-glow);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    .member-cta-body { flex: 1; }
+    .member-cta-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .member-cta-body h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .member-cta-body p {
+      color: var(--text-dim);
+      font-size: 0.97rem;
+      line-height: 1.65;
+      margin-bottom: 6px;
+    }
+    .member-cta-body p strong { color: var(--green); }
+    .member-cta-fine {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 12px;
+    }
+    .member-cta-action {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+    }
+    .member-cta-action .btn { white-space: nowrap; text-align: center; }
+    @media (max-width: 800px) {
+      .member-cta-inner { flex-direction: column; text-align: center; gap: 20px; padding: 30px 18px; }
+      .member-cta-action { width: 100%; }
+    }
+
     /* --- MOBILE --- */
     @media (max-width: 639px) {
       .hero { padding: 60px 16px 50px; }
@@ -496,6 +578,32 @@
   </style>
 </head>
 <body>
+
+  <!-- ===== MEMBERS CTA BANNER ===== -->
+  <aside class="member-cta">
+    <div class="member-cta-inner">
+      <div class="member-cta-key">&#128273;</div>
+      <div class="member-cta-body">
+        <div class="member-cta-tag">Members &middot; The Continental</div>
+        <h2>You&rsquo;ve read why $WICK is <em>the</em> agentic coin. Here&rsquo;s the part you can act on.</h2>
+        <p>
+          The same coin that settles agent payments is also the <strong>key to the door</strong>.
+          Hold $WICK and the Continental opens &mdash; <strong>Operator Alpha</strong>, our highest-earning
+          automated on-chain strategies with copy-ready agent prompts, plus a direct line to the green team.
+        </p>
+        <p>Hold the coin. Walk through the door.</p>
+        <p class="member-cta-fine">
+          Access &middot; hold &ge; 55,550 $WICK. Connecting is a free, gasless signature that only proves you
+          hold &mdash; never a transaction, never gas, no access to your funds.
+        </p>
+      </div>
+      <div class="member-cta-action">
+        <a href="https://member.wick.pics" class="btn btn-primary">Enter the Continental &rarr;</a>
+        <a href="https://greenwick.tiiny.site/#join" target="_blank" rel="noopener" class="btn btn-outline">Get the coin</a>
+      </div>
+    </div>
+  </aside>
+
   <div style="width:100%;padding:6px 12px;background:linear-gradient(90deg,#0d9488,#065f46);font-family:sans-serif;box-sizing:border-box;">
     <div style="max-width:720px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4px;">
