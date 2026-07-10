@@ -1,7 +1,7 @@
 {
   "name": "agent-token-reality-index",
   "description": "AI-agent tokens with two reads: (1) paper ratio = 1 − (real DEX liquidity ÷ market cap) — how un-cashable the \"market cap\" is; (2) a contract-safety verdict (honeypot/mint/owner-control/tax).",
-  "generatedAt": "2026-07-10T10:20:02.959Z",
+  "generatedAt": "2026-07-10T16:20:03.566Z",
   "source": "DexScreener (live liquidity/mcap) + GoPlus Security (live contract safety, EVM + Solana)",
   "api": {
     "description": "Want this programmatically, on any token? Token-safety + exit-liquidity as a pay-per-call API for agents — no signup, x402 (USDC on Base).",
@@ -20,10 +20,10 @@
       "chain": "solana",
       "address": "DuMbhu7mvQvqQHGcnikDgb4XegXJRyhUBfdU22uELiZA",
       "verifyUrl": "https://dexscreener.com/solana/DuMbhu7mvQvqQHGcnikDgb4XegXJRyhUBfdU22uELiZA",
-      "priceUsd": 0.0005012,
-      "marketCapUsd": 3724922,
-      "realLiquidityUsd": 17579,
-      "liquidityToMcap": 0.0047,
+      "priceUsd": 0.0004934,
+      "marketCapUsd": 3722241,
+      "realLiquidityUsd": 17301,
+      "liquidityToMcap": 0.0046,
       "paperPct": 99.5,
       "verdict": "ALMOST ALL PAPER",
       "safety": {
@@ -36,8 +36,8 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": 0,
-        "liquidityChangePct": -1
+        "paperPctDelta": -0.1,
+        "liquidityChangePct": 3
       }
     },
     {
@@ -46,10 +46,10 @@
       "chain": "base",
       "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
-      "priceUsd": 0.5416,
-      "marketCapUsd": 359557434,
-      "realLiquidityUsd": 4058523,
-      "liquidityToMcap": 0.0113,
+      "priceUsd": 0.541,
+      "marketCapUsd": 355418385,
+      "realLiquidityUsd": 4062337,
+      "liquidityToMcap": 0.0114,
       "paperPct": 98.9,
       "verdict": "ALMOST ALL PAPER",
       "safety": {
@@ -74,10 +74,10 @@
       "chain": "base",
       "address": "0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825",
-      "priceUsd": 0.01938,
-      "marketCapUsd": 19102603,
-      "realLiquidityUsd": 773154,
-      "liquidityToMcap": 0.0405,
+      "priceUsd": 0.01888,
+      "marketCapUsd": 19028511,
+      "realLiquidityUsd": 755336,
+      "liquidityToMcap": 0.0397,
       "paperPct": 96,
       "verdict": "MOSTLY PAPER",
       "safety": {
@@ -90,30 +90,7 @@
       "trend": {
         "windowDays": 7,
         "paperPctDelta": 0.1,
-        "liquidityChangePct": -3
-      }
-    },
-    {
-      "symbol": "FARTCOIN",
-      "name": "Fartcoin — AI-meme (Truth Terminal lineage), the liquidity king",
-      "chain": "solana",
-      "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
-      "verifyUrl": "https://dexscreener.com/solana/9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
-      "priceUsd": 0.148,
-      "marketCapUsd": 148296218,
-      "realLiquidityUsd": 6411202,
-      "liquidityToMcap": 0.0432,
-      "paperPct": 95.7,
-      "verdict": "MOSTLY PAPER",
-      "safety": {
-        "rating": "clean",
-        "flags": [],
-        "source": "GoPlus (Solana)"
-      },
-      "trend": {
-        "windowDays": 7,
-        "paperPctDelta": -0.2,
-        "liquidityChangePct": -8
+        "liquidityChangePct": -6
       }
     },
     {
@@ -122,10 +99,10 @@
       "chain": "solana",
       "address": "61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump",
       "verifyUrl": "https://dexscreener.com/solana/61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump",
-      "priceUsd": 0.0805,
-      "marketCapUsd": 80782399,
-      "realLiquidityUsd": 4199027,
-      "liquidityToMcap": 0.052,
+      "priceUsd": 0.07973,
+      "marketCapUsd": 79514187,
+      "realLiquidityUsd": 4143853,
+      "liquidityToMcap": 0.0521,
       "paperPct": 94.8,
       "verdict": "MOSTLY PAPER",
       "safety": {
@@ -135,21 +112,21 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": 0,
+        "paperPctDelta": 0.1,
         "liquidityChangePct": -1
       }
     },
     {
-      "symbol": "GOAT",
-      "name": "Goatseus Maximus — Truth Terminal, the origin story",
+      "symbol": "FARTCOIN",
+      "name": "Fartcoin — AI-meme (Truth Terminal lineage), the liquidity king",
       "chain": "solana",
-      "address": "CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
-      "verifyUrl": "https://dexscreener.com/solana/CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
-      "priceUsd": 0.01374,
-      "marketCapUsd": 13717443,
-      "realLiquidityUsd": 1219234,
-      "liquidityToMcap": 0.0889,
-      "paperPct": 91.1,
+      "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+      "verifyUrl": "https://dexscreener.com/solana/9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+      "priceUsd": 757.42,
+      "marketCapUsd": 145839253,
+      "realLiquidityUsd": 8771044,
+      "liquidityToMcap": 0.0601,
+      "paperPct": 94,
       "verdict": "MOSTLY PAPER",
       "safety": {
         "rating": "clean",
@@ -158,8 +135,31 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": -0.2,
-        "liquidityChangePct": -3
+        "paperPctDelta": -1.9,
+        "liquidityChangePct": 27
+      }
+    },
+    {
+      "symbol": "GOAT",
+      "name": "Goatseus Maximus — Truth Terminal, the origin story",
+      "chain": "solana",
+      "address": "CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
+      "verifyUrl": "https://dexscreener.com/solana/CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
+      "priceUsd": 0.01382,
+      "marketCapUsd": 13795680,
+      "realLiquidityUsd": 1215079,
+      "liquidityToMcap": 0.0881,
+      "paperPct": 91.2,
+      "verdict": "MOSTLY PAPER",
+      "safety": {
+        "rating": "clean",
+        "flags": [],
+        "source": "GoPlus (Solana)"
+      },
+      "trend": {
+        "windowDays": 7,
+        "paperPctDelta": -0.1,
+        "liquidityChangePct": -4
       }
     },
     {
@@ -168,11 +168,11 @@
       "chain": "solana",
       "address": "KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
       "verifyUrl": "https://dexscreener.com/solana/KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
-      "priceUsd": 0.008667,
-      "marketCapUsd": 8666300,
-      "realLiquidityUsd": 1226661,
-      "liquidityToMcap": 0.1415,
-      "paperPct": 85.8,
+      "priceUsd": 0.008766,
+      "marketCapUsd": 8709447,
+      "realLiquidityUsd": 1225691,
+      "liquidityToMcap": 0.1407,
+      "paperPct": 85.9,
       "verdict": "THINLY BACKED",
       "safety": {
         "rating": "clean",
@@ -182,30 +182,7 @@
       "trend": {
         "windowDays": 7,
         "paperPctDelta": -0.5,
-        "liquidityChangePct": -5
-      }
-    },
-    {
-      "symbol": "ZEREBRO",
-      "name": "Zerebro — actively traded, still mostly paper",
-      "chain": "solana",
-      "address": "8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
-      "verifyUrl": "https://dexscreener.com/solana/8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
-      "priceUsd": 186.72,
-      "marketCapUsd": 36930509,
-      "realLiquidityUsd": 5251241,
-      "liquidityToMcap": 0.1422,
-      "paperPct": 85.8,
-      "verdict": "THINLY BACKED",
-      "safety": {
-        "rating": "clean",
-        "flags": [],
-        "source": "GoPlus (Solana)"
-      },
-      "trend": {
-        "windowDays": 7,
-        "paperPctDelta": -7.1,
-        "liquidityChangePct": 76
+        "liquidityChangePct": -6
       }
     },
     {
@@ -214,11 +191,11 @@
       "chain": "base",
       "address": "0x731814e491571A2e9eE3c5b1F7f3b962eE8f4870",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x731814e491571A2e9eE3c5b1F7f3b962eE8f4870",
-      "priceUsd": 0.001252,
-      "marketCapUsd": 1240543,
-      "realLiquidityUsd": 226469,
-      "liquidityToMcap": 0.1826,
-      "paperPct": 81.7,
+      "priceUsd": 0.001244,
+      "marketCapUsd": 1220608,
+      "realLiquidityUsd": 226699,
+      "liquidityToMcap": 0.1857,
+      "paperPct": 81.4,
       "verdict": "THINLY BACKED",
       "safety": {
         "rating": "clean",
@@ -229,8 +206,31 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": -1.3,
-        "liquidityChangePct": -11
+        "paperPctDelta": -1.4,
+        "liquidityChangePct": -13
+      }
+    },
+    {
+      "symbol": "ZEREBRO",
+      "name": "Zerebro — actively traded, still mostly paper",
+      "chain": "solana",
+      "address": "8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
+      "verifyUrl": "https://dexscreener.com/solana/8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
+      "priceUsd": 184.16,
+      "marketCapUsd": 35700380,
+      "realLiquidityUsd": 8509903,
+      "liquidityToMcap": 0.2384,
+      "paperPct": 76.2,
+      "verdict": "THINLY BACKED",
+      "safety": {
+        "rating": "clean",
+        "flags": [],
+        "source": "GoPlus (Solana)"
+      },
+      "trend": {
+        "windowDays": 7,
+        "paperPctDelta": -16.5,
+        "liquidityChangePct": 190
       }
     },
     {
@@ -239,10 +239,10 @@
       "chain": "base",
       "address": "0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4",
-      "priceUsd": 0.004648,
-      "marketCapUsd": 4614618,
-      "realLiquidityUsd": 1410719,
-      "liquidityToMcap": 0.3057,
+      "priceUsd": 0.004654,
+      "marketCapUsd": 4607457,
+      "realLiquidityUsd": 1410753,
+      "liquidityToMcap": 0.3062,
       "paperPct": 69.4,
       "verdict": "relatively backed",
       "safety": {
@@ -254,8 +254,8 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": 0.2,
-        "liquidityChangePct": -4
+        "paperPctDelta": -0.3,
+        "liquidityChangePct": -3
       }
     }
   ]
