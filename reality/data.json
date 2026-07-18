@@ -1,7 +1,7 @@
 {
   "name": "agent-token-reality-index",
   "description": "AI-agent tokens with two reads: (1) paper ratio = 1 − (real DEX liquidity ÷ market cap) — how un-cashable the \"market cap\" is; (2) a contract-safety verdict (honeypot/mint/owner-control/tax).",
-  "generatedAt": "2026-07-18T04:20:03.711Z",
+  "generatedAt": "2026-07-18T10:20:02.869Z",
   "source": "DexScreener (live liquidity/mcap) + GoPlus Security (live contract safety, EVM + Solana)",
   "api": {
     "description": "Want this programmatically, on any token? Token-safety + exit-liquidity as a pay-per-call API for agents — no signup, x402 (USDC on Base).",
@@ -20,10 +20,10 @@
       "chain": "solana",
       "address": "DuMbhu7mvQvqQHGcnikDgb4XegXJRyhUBfdU22uELiZA",
       "verifyUrl": "https://dexscreener.com/solana/DuMbhu7mvQvqQHGcnikDgb4XegXJRyhUBfdU22uELiZA",
-      "priceUsd": 0.0004383,
-      "marketCapUsd": 3256510,
-      "realLiquidityUsd": 13621,
-      "liquidityToMcap": 0.0042,
+      "priceUsd": 0.0004404,
+      "marketCapUsd": 3273346,
+      "realLiquidityUsd": 14221,
+      "liquidityToMcap": 0.0043,
       "paperPct": 99.6,
       "verdict": "ALMOST ALL PAPER",
       "safety": {
@@ -37,7 +37,7 @@
       "trend": {
         "windowDays": 7,
         "paperPctDelta": 0.1,
-        "liquidityChangePct": -28
+        "liquidityChangePct": -25
       }
     },
     {
@@ -46,11 +46,11 @@
       "chain": "base",
       "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
-      "priceUsd": 0.6339,
-      "marketCapUsd": 415662758,
-      "realLiquidityUsd": 5124353,
-      "liquidityToMcap": 0.0123,
-      "paperPct": 98.8,
+      "priceUsd": 0.6182,
+      "marketCapUsd": 403367464,
+      "realLiquidityUsd": 5060268,
+      "liquidityToMcap": 0.0125,
+      "paperPct": 98.7,
       "verdict": "ALMOST ALL PAPER",
       "safety": {
         "rating": "high-risk",
@@ -64,8 +64,8 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": -0.1,
-        "liquidityChangePct": 10
+        "paperPctDelta": -0.2,
+        "liquidityChangePct": 9
       }
     },
     {
@@ -74,10 +74,10 @@
       "chain": "base",
       "address": "0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825",
-      "priceUsd": 0.01837,
-      "marketCapUsd": 18521687,
-      "realLiquidityUsd": 811689,
-      "liquidityToMcap": 0.0438,
+      "priceUsd": 0.0181,
+      "marketCapUsd": 18219019,
+      "realLiquidityUsd": 794352,
+      "liquidityToMcap": 0.0436,
       "paperPct": 95.6,
       "verdict": "MOSTLY PAPER",
       "safety": {
@@ -99,11 +99,11 @@
       "chain": "solana",
       "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
       "verifyUrl": "https://dexscreener.com/solana/9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
-      "priceUsd": 0.1344,
-      "marketCapUsd": 134474007,
-      "realLiquidityUsd": 5959629,
-      "liquidityToMcap": 0.0443,
-      "paperPct": 95.6,
+      "priceUsd": 0.1296,
+      "marketCapUsd": 129073280,
+      "realLiquidityUsd": 5837124,
+      "liquidityToMcap": 0.0452,
+      "paperPct": 95.5,
       "verdict": "MOSTLY PAPER",
       "safety": {
         "rating": "clean",
@@ -112,8 +112,8 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": -0.1,
-        "liquidityChangePct": -6
+        "paperPctDelta": -0.2,
+        "liquidityChangePct": -9
       }
     },
     {
@@ -122,10 +122,10 @@
       "chain": "solana",
       "address": "61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump",
       "verifyUrl": "https://dexscreener.com/solana/61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump",
-      "priceUsd": 0.07357,
-      "marketCapUsd": 72772879,
-      "realLiquidityUsd": 3918835,
-      "liquidityToMcap": 0.0539,
+      "priceUsd": 0.07074,
+      "marketCapUsd": 71020319,
+      "realLiquidityUsd": 3833246,
+      "liquidityToMcap": 0.054,
       "paperPct": 94.6,
       "verdict": "MOSTLY PAPER",
       "safety": {
@@ -136,7 +136,7 @@
       "trend": {
         "windowDays": 7,
         "paperPctDelta": -0.2,
-        "liquidityChangePct": -5
+        "liquidityChangePct": -6
       }
     },
     {
@@ -145,11 +145,11 @@
       "chain": "solana",
       "address": "8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
       "verifyUrl": "https://dexscreener.com/solana/8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
-      "priceUsd": 0.03364,
-      "marketCapUsd": 33372810,
-      "realLiquidityUsd": 2599908,
-      "liquidityToMcap": 0.0779,
-      "paperPct": 92.2,
+      "priceUsd": 0.03369,
+      "marketCapUsd": 33494303,
+      "realLiquidityUsd": 2595555,
+      "liquidityToMcap": 0.0775,
+      "paperPct": 92.3,
       "verdict": "MOSTLY PAPER",
       "safety": {
         "rating": "clean",
@@ -158,7 +158,7 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": -0.2,
+        "paperPctDelta": -0.1,
         "liquidityChangePct": -5
       }
     },
@@ -168,10 +168,10 @@
       "chain": "solana",
       "address": "CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
       "verifyUrl": "https://dexscreener.com/solana/CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
-      "priceUsd": 0.01312,
-      "marketCapUsd": 13023863,
-      "realLiquidityUsd": 1161606,
-      "liquidityToMcap": 0.0892,
+      "priceUsd": 0.01297,
+      "marketCapUsd": 12884664,
+      "realLiquidityUsd": 1152343,
+      "liquidityToMcap": 0.0894,
       "paperPct": 91.1,
       "verdict": "MOSTLY PAPER",
       "safety": {
@@ -191,11 +191,11 @@
       "chain": "solana",
       "address": "KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
       "verifyUrl": "https://dexscreener.com/solana/KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
-      "priceUsd": 0.008146,
-      "marketCapUsd": 8145833,
-      "realLiquidityUsd": 1160660,
-      "liquidityToMcap": 0.1425,
-      "paperPct": 85.8,
+      "priceUsd": 0.008085,
+      "marketCapUsd": 8056749,
+      "realLiquidityUsd": 1152594,
+      "liquidityToMcap": 0.1431,
+      "paperPct": 85.7,
       "verdict": "THINLY BACKED",
       "safety": {
         "rating": "clean",
@@ -204,8 +204,8 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": -0.3,
-        "liquidityChangePct": -5
+        "paperPctDelta": -0.4,
+        "liquidityChangePct": -7
       }
     },
     {
@@ -214,11 +214,11 @@
       "chain": "base",
       "address": "0x731814e491571A2e9eE3c5b1F7f3b962eE8f4870",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x731814e491571A2e9eE3c5b1F7f3b962eE8f4870",
-      "priceUsd": 0.001161,
-      "marketCapUsd": 1155361,
-      "realLiquidityUsd": 236535,
-      "liquidityToMcap": 0.2047,
-      "paperPct": 79.5,
+      "priceUsd": 0.001136,
+      "marketCapUsd": 1114856,
+      "realLiquidityUsd": 231622,
+      "liquidityToMcap": 0.2078,
+      "paperPct": 79.2,
       "verdict": "THINLY BACKED",
       "safety": {
         "rating": "clean",
@@ -230,7 +230,7 @@
       "trend": {
         "windowDays": 7,
         "paperPctDelta": -1.8,
-        "liquidityChangePct": -7
+        "liquidityChangePct": -8
       }
     },
     {
@@ -239,11 +239,11 @@
       "chain": "base",
       "address": "0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4",
       "verifyUrl": "https://onchain.wick.pics/t/base/0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4",
-      "priceUsd": 0.00513,
-      "marketCapUsd": 5158205,
-      "realLiquidityUsd": 1597086,
-      "liquidityToMcap": 0.3096,
-      "paperPct": 69,
+      "priceUsd": 0.004996,
+      "marketCapUsd": 5044169,
+      "realLiquidityUsd": 1553803,
+      "liquidityToMcap": 0.308,
+      "paperPct": 69.2,
       "verdict": "relatively backed",
       "safety": {
         "rating": "clean",
@@ -254,8 +254,8 @@
       },
       "trend": {
         "windowDays": 7,
-        "paperPctDelta": -0.4,
-        "liquidityChangePct": -1
+        "paperPctDelta": 0.2,
+        "liquidityChangePct": -2
       }
     }
   ]
