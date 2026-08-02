@@ -1,1043 +1,343 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$WICK on PulseChain — The AI Agent Payment Layer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="$WICK on PulseChain: the only payment layer engineered for autonomous AI agent micro-transactions at swarm scale.">
-  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <style>
-    :root {
-      --green: #00ff41;
-      --green-dim: #00cc33;
-      --green-glow: rgba(0, 255, 65, 0.15);
-      --green-glow-strong: rgba(0, 255, 65, 0.3);
-      --bg: #060a06;
-      --bg-card: #0c110c;
-      --bg-card-hover: #111a11;
-      --border: #1a2e1a;
-      --text: #d0ddd0;
-      --text-dim: #7a8f7a;
-      --white: #f0f5f0;
-    }
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>$WICK on PulseChain — The AI Agent Payment Layer</title>
+<meta name="description" content="$WICK on PulseChain: the only payment layer engineered for autonomous AI agent micro-transactions at swarm scale.">
+<link rel="canonical" href="https://agent.wick.pics/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="agent.wick.pics">
+<meta property="og:title" content="$WICK on PulseChain — The AI Agent Payment Layer">
+<meta property="og:description" content="$WICK on PulseChain: the only payment layer engineered for autonomous AI agent micro-transactions at swarm scale.">
+<meta property="og:url" content="https://agent.wick.pics/">
+<meta property="og:image" content="https://agent.wick.pics/reality/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="$WICK on PulseChain — The AI Agent Payment Layer">
+<meta name="twitter:description" content="$WICK on PulseChain: the only payment layer engineered for autonomous AI agent micro-transactions at swarm scale.">
+<meta name="twitter:image" content="https://agent.wick.pics/reality/og.png">
+<meta name="color-scheme" content="dark">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"$WICK on PulseChain — The AI Agent Payment Layer","url":"https://agent.wick.pics/","description":"$WICK on PulseChain: the payment layer engineered for autonomous AI agent micro-transactions at swarm scale.","inLanguage":"en","publisher":{"@type":"Organization","name":"Green Wick AI","url":"https://wick.pics"}}</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+@font-face{font-family:'JetBrains Mono';src:url(/jetbrains-mono.woff2) format('woff2');
+  font-weight:100 800;font-display:swap}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050607; --panel:#0b0d0f; --line:#181c1f; --line-2:#232a2e;
+  --ink:#e8eef0; --ink-2:#98a6ab; --ink-3:#859399;
+  --acc:#25e0a4; --acc-2:#7af5cc;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --sans:'JetBrains Mono',ui-monospace,Menlo,monospace}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);
+  font:400 16px/1.65 var(--mono);font-variant-numeric:tabular-nums;
+  letter-spacing:-.005em;overflow-x:hidden}
+::selection{background:var(--acc);color:#04150f}
+a{color:inherit}
+.top{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;
+  align-items:center;gap:16px;flex-wrap:wrap;padding:14px 28px;
+  background:rgba(5,6,7,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font:700 12px/1 var(--mono);letter-spacing:.2em;text-decoration:none}
+.tnav{display:flex;gap:18px;flex-wrap:wrap}
+.tnav a{font:500 12px/1 var(--mono);letter-spacing:.05em;color:var(--ink-2);text-decoration:none}
+.tnav a:hover{color:var(--acc)}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* THE MOMENT — a live network of agents settling, drawn from real motion */
+.stage{position:relative;min-height:clamp(560px,88vh,900px);display:flex;align-items:center;
+  border-bottom:1px solid var(--line);overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 40%,transparent 30%,rgba(5,6,7,.72) 78%,var(--bg) 100%)}
+.stagein{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 28px;width:100%}
+.badge{display:inline-block;font:600 11px/1 var(--mono);letter-spacing:.24em;color:var(--acc);
+  border:1px solid rgba(37,224,164,.32);border-radius:999px;padding:8px 14px;margin-bottom:26px}
+h1{font-weight:700;font-size:clamp(34px,5.6vw,74px);line-height:1.02;letter-spacing:-.045em;
+  max-width:19ch;text-wrap:balance}
+.wm{color:var(--acc)}
+.lead.big{margin-top:24px;max-width:62ch;font-size:clamp(15px,1.5vw,17.5px);line-height:1.62;
+  color:var(--ink-2);letter-spacing:0}
+.cap{margin-top:30px;font:500 11px/1 var(--mono);letter-spacing:.18em;color:var(--ink-3)}
+.cap::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--acc);margin-right:9px;vertical-align:1px;
+  animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
 
-    html { scroll-behavior: smooth; }
+main{max-width:1180px;margin:0 auto;padding:0 28px 100px}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+.cont{margin:72px 0;padding:38px 40px;border:1px solid var(--line-2);border-radius:14px;
+  background:linear-gradient(180deg,rgba(37,224,164,.05),transparent 60%),var(--panel)}
+.cont h2{font-size:clamp(21px,2.6vw,30px);line-height:1.2;letter-spacing:-.03em;
+  margin:12px 0 16px;max-width:30ch}
+.cont p{max-width:70ch;color:var(--ink-2);font-size:15.5px}
+.cont .hold{margin-top:14px;color:var(--ink);font-weight:700}
+.cont .fine{margin-top:16px;font-size:13px;color:var(--ink-3);max-width:78ch}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;padding:12px 20px;border:1px solid var(--line-2);border-radius:9px;
+  font:600 12.5px/1 var(--mono);letter-spacing:.06em;text-decoration:none;color:var(--ink);
+  transition:border-color .18s ease,background .18s ease,color .18s ease}
+.btn:hover{border-color:var(--acc);color:var(--acc)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#04150f;font-weight:700}
+.btn.pri:hover{background:var(--acc-2);border-color:var(--acc-2);color:#04150f}
 
-    /* --- Scanline overlay --- */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 255, 65, 0.015) 2px,
-        rgba(0, 255, 65, 0.015) 4px
-      );
-      pointer-events: none;
-      z-index: 9999;
-    }
+.s{padding:72px 0;border-top:1px solid var(--line)}
+.shead{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.idx{font:700 11px/1 var(--mono);color:var(--acc);letter-spacing:.14em}
+.kick{font:600 11px/1 var(--mono);letter-spacing:.22em;color:var(--ink-3)}
+.s h2{font-size:clamp(25px,3.6vw,42px);line-height:1.08;letter-spacing:-.04em;
+  margin-bottom:20px;max-width:22ch;text-wrap:balance}
+.lead{max-width:72ch;color:var(--ink-2);font-size:15.5px}
+.lead + .lead{margin-top:16px}
+.inl{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;
+  text-underline-offset:3px;text-decoration-color:rgba(37,224,164,.45)}
+.inl:hover{text-decoration-color:var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:40px}
+.card{position:relative;border:1px solid var(--line);border-radius:13px;padding:26px 24px 24px;
+  background:var(--panel);transition:border-color .2s ease,transform .2s ease}
+.card:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.cn{font:700 10.5px/1 var(--mono);color:var(--acc);letter-spacing:.14em}
+.card h3{margin:14px 0 10px;font-size:17px;line-height:1.28;letter-spacing:-.02em;text-wrap:balance}
+.card p{font-size:14.5px;line-height:1.62;color:var(--ink-2)}
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+.tw{overflow-x:auto;margin-top:36px;border:1px solid var(--line);border-radius:13px}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:13px}
+th,td{text-align:left;padding:15px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:700;font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);background:#080a0b}
+tr:last-child td{border-bottom:0}
+tr td:first-child{font-weight:700;color:var(--ink)}
+tr.me td{background:rgba(37,224,164,.07)}
+tr.me td:first-child{color:var(--acc)}
 
-    /* --- HERO --- */
-    .hero {
-      text-align: center;
-      padding: 100px 24px 80px;
-      position: relative;
-    }
+.rowlinks{display:flex;flex-wrap:wrap;gap:10px;padding-top:34px;border-top:1px solid var(--line)}
+.rowlinks a{font:600 12px/1 var(--mono);letter-spacing:.06em;text-decoration:none;
+  padding:12px 17px;border:1px solid var(--line-2);border-radius:9px;color:var(--ink-2);
+  transition:border-color .18s,color .18s}
+.rowlinks a:hover{border-color:var(--acc);color:var(--acc)}
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
+footer{max-width:1180px;margin:0 auto;padding:34px 28px 64px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font:400 12.5px/1.5 var(--mono);color:var(--ink-3)}
+footer a{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
 
-    .hero-tag {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: var(--green);
-      border: 1px solid var(--border);
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 28px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: var(--bg-card);
-    }
+@media(max-width:900px){
+  main{padding:0 18px 80px} .top{padding:12px 18px} footer{padding-left:18px;padding-right:18px}
+  .stagein{padding:0 18px} .cont{padding:26px 20px;margin:52px 0}
+  .stage{min-height:74vh}
+}
+@media(prefers-reduced-motion:reduce){
+  .cap::before{animation:none}
+  .card{transition:none}
+}
+</style>
+</head><body data-draft="B — The Machine">
 
-    .hero h1 {
-      font-family: 'Bungee Shade', cursive;
-      font-size: clamp(2rem, 6vw, 3.4rem);
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 28px;
-      text-shadow: 0 0 40px var(--green-glow-strong);
-    }
+<header class="top">
+  <a class="brand" href="https://wick.pics">GREEN WICK AI</a>
+  <nav class="tnav"><a href="https://wick.pics">← Back to WICK Agent Hub</a><a href="https://swap.wick.pics">Buy $WICK →</a></nav>
+</header>
 
-    .hero h1 span {
-      display: block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      font-weight: 600;
-      color: var(--text);
-      margin-top: 12px;
-      text-shadow: none;
-    }
-
-    .hero-sub {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      color: var(--text-dim);
-      line-height: 1.8;
-    }
-
-    .hero-sub strong {
-      color: var(--white);
-    }
-
-    /* --- SECTION --- */
-    section {
-      padding: 80px 0;
-    }
-
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--green);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
-
-    .section-intro {
-      color: var(--text-dim);
-      max-width: 680px;
-      margin-bottom: 48px;
-      font-size: 1.05rem;
-    }
-
-    /* --- DIVIDER --- */
-    .divider {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-      margin: 0;
-    }
-
-    /* --- FEATURE CARDS --- */
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      transition: background 0.2s, border-color 0.2s;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .feature-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--green-dim);
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 100%;
-      background: var(--green);
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .feature-card:hover::before {
-      opacity: 1;
-    }
-
-    .feature-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .feature-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .feature-card p {
-      color: var(--text-dim);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    @media (min-width: 640px) {
-      .features-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-    }
-
-    /* --- LIVE PROOF --- */
-    .live-banner {
-      background: linear-gradient(135deg, var(--bg-card), #0a1a0a);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 40px;
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-    }
-
-    .live-dot {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      box-shadow: 0 0 20px var(--green-glow-strong), 0 0 60px var(--green-glow);
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px var(--green-glow-strong), 0 0 60px var(--green-glow); }
-      50% { box-shadow: 0 0 30px var(--green-glow-strong), 0 0 80px var(--green-glow); }
-    }
-
-    .live-banner h3 {
-      font-size: 1.2rem;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-
-    .live-banner p {
-      color: var(--text-dim);
-      font-size: 0.95rem;
-    }
-
-    .live-banner strong { color: var(--green); }
-
-    @media (max-width: 639px) {
-      .live-banner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
-
-    /* --- COMPARISON TABLE --- */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-
-    .comparison-table th,
-    .comparison-table td {
-      padding: 14px 18px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .comparison-table thead th {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--green);
-      background: var(--bg-card);
-      position: sticky;
-      top: 0;
-    }
-
-    .comparison-table tbody td {
-      color: var(--text-dim);
-    }
-
-    .comparison-table tbody td:first-child {
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    .comparison-table tbody tr:hover {
-      background: var(--bg-card);
-    }
-
-    .badge-yes {
-      display: inline-block;
-      background: rgba(0, 255, 65, 0.1);
-      color: var(--green);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .badge-no {
-      display: inline-block;
-      background: rgba(255, 60, 60, 0.1);
-      color: #ff4444;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .badge-partial {
-      display: inline-block;
-      background: rgba(255, 200, 0, 0.1);
-      color: #ffcc00;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    /* --- THESIS --- */
-    .thesis {
-      text-align: center;
-      padding: 100px 24px;
-      position: relative;
-    }
-
-    .thesis::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .thesis h2 {
-      font-family: 'Bungee Shade', cursive;
-      font-size: clamp(1.4rem, 4vw, 2.2rem);
-      color: var(--green);
-      margin-bottom: 24px;
-      text-shadow: 0 0 30px var(--green-glow-strong);
-    }
-
-    .thesis p {
-      max-width: 700px;
-      margin: 0 auto 16px;
-      color: var(--text-dim);
-      font-size: 1.05rem;
-    }
-
-    .thesis p strong { color: var(--white); }
-
-    /* --- CTA BUTTONS --- */
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-      margin-top: 40px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: #000;
-      box-shadow: 0 0 20px var(--green-glow);
-    }
-
-    .btn-primary:hover {
-      background: #33ff66;
-      box-shadow: 0 0 30px var(--green-glow-strong);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--green);
-      border: 1px solid var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--green-dim);
-      background: var(--bg-card);
-      transform: translateY(-1px);
-    }
-
-    /* --- FOOTER --- */
-    footer {
-      text-align: center;
-      padding: 40px 24px;
-      border-top: 1px solid var(--border);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-
-    footer a {
-      color: var(--green);
-      text-decoration: none;
-    }
-
-    /* --- TIMELINE (sideways boxes on desktop, stacks on mobile) --- */
-    .timeline {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-    @media (min-width: 640px)  { .timeline { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 980px)  { .timeline { grid-template-columns: repeat(4, 1fr); } }
-    .tl-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--green-dim);
-      border-radius: 10px;
-      padding: 18px 20px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .tl-item:hover {
-      border-color: var(--green-dim);
-      background: var(--bg-card-hover);
-    }
-    .tl-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--green);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 7px;
-    }
-    .tl-item h4 {
-      font-size: 1.05rem;
-      color: var(--white);
-      margin-bottom: 7px;
-      font-weight: 700;
-    }
-    .tl-item p {
-      color: var(--text-dim);
-      font-size: 0.92rem;
-      line-height: 1.65;
-    }
-    .tl-item.tl-now {
-      border-left-color: var(--green);
-      box-shadow: 0 0 26px var(--green-glow);
-    }
-
-    /* --- MEMBERS CTA BANNER (top-of-page hero-adjacent callout) --- */
-    .member-cta {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0a1a0a, var(--bg-card));
-      border-bottom: 1px solid var(--green-dim);
-      box-shadow: inset 0 -1px 30px var(--green-glow);
-    }
-    .member-cta::before {
-      content: '';
-      position: absolute;
-      top: -40%; left: 50%;
-      transform: translateX(-50%);
-      width: 700px; height: 400px;
-      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .member-cta-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 38px 24px;
-      position: relative;
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-    .member-cta-key {
-      flex-shrink: 0;
-      width: 60px; height: 60px;
-      border-radius: 50%;
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 0 22px var(--green-glow-strong), 0 0 60px var(--green-glow);
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
-    .member-cta-body { flex: 1; }
-    .member-cta-tag {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--green);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .member-cta-body h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.15rem, 2.6vw, 1.5rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 10px;
-    }
-    .member-cta-body p {
-      color: var(--text-dim);
-      font-size: 0.97rem;
-      line-height: 1.65;
-      margin-bottom: 6px;
-    }
-    .member-cta-body p strong { color: var(--green); }
-    .member-cta-fine {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--text-dim);
-      margin-top: 12px;
-    }
-    .member-cta-action {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 8px;
-    }
-    .member-cta-action .btn { white-space: nowrap; text-align: center; }
-    @media (max-width: 800px) {
-      .member-cta-inner { flex-direction: column; text-align: center; gap: 20px; padding: 30px 18px; }
-      .member-cta-action { width: 100%; }
-    }
-
-    /* --- MOBILE --- */
-    @media (max-width: 639px) {
-      .hero { padding: 60px 16px 50px; }
-      section { padding: 50px 0; }
-      .feature-card { padding: 24px; }
-      .live-banner { padding: 28px; }
-      .thesis { padding: 60px 16px; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ===== MEMBERS CTA BANNER ===== -->
-  <aside class="member-cta">
-    <div class="member-cta-inner">
-      <div class="member-cta-key">&#128273;</div>
-      <div class="member-cta-body">
-        <div class="member-cta-tag">Members &middot; The Continental</div>
-        <h2>You&rsquo;ve read why $WICK is <em>the</em> agentic coin. Here&rsquo;s the part you can act on.</h2>
-        <p>
-          The same coin that settles agent payments is also the <strong>key to the door</strong>.
-          Hold $WICK and the Continental opens &mdash; <strong>Operator Alpha</strong>, our highest-earning
-          automated on-chain strategies with copy-ready agent prompts, plus a direct line to the green team.
-        </p>
-        <p>Hold the coin. Walk through the door.</p>
-        <p class="member-cta-fine">
-          Access &middot; hold &ge; 55,550 $WICK. Connecting is a free, gasless signature that only proves you
-          hold &mdash; never a transaction, never gas, no access to your funds.
-        </p>
-      </div>
-      <div class="member-cta-action">
-        <a href="https://member.wick.pics" class="btn btn-primary">Enter the Continental &rarr;</a>
-        <a href="https://swap.wick.pics" target="_blank" rel="noopener" class="btn btn-outline">Get the coin</a>
-      </div>
-    </div>
-  </aside>
-
-  <div style="width:100%;padding:6px 12px;background:linear-gradient(90deg,#0d9488,#065f46);font-family:sans-serif;box-sizing:border-box;">
-    <div style="max-width:720px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:4px;">
-        <a href="https://dexscreener.com/pulsechain/0x32b9d861802eaeb90b141daa618074a9a38dcae6" style="font-size:13px;font-weight:500;letter-spacing:0.3px;color:#d1fae5;text-decoration:none;"><span style="opacity:0.75">Powered by</span> <b>Green Wick</b> <span style="opacity:0.75">Cryptocurrency</span></a>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
-        <a href="https://wick.pics" style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap;background:rgba(255,255,255,0.12);color:#d1fae5;text-decoration:none;">&larr; Back to WICK Agent Hub</a>
-        <a href="https://swap.wick.pics" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap;background:rgba(255,255,255,0.18);color:#ecfdf5;text-decoration:none;">Buy $WICK &rarr;</a>
-      </div>
-    </div>
+<div class="stage">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="stagein">
+    <p class="badge">PULSECHAIN · EVM NATIVE · ZERO TAX</p>
+    <h1><span class="wm">$WICK</span> The Payment Layer for Autonomous AI Agents</h1>
+    <p class="lead big">The AI machine economy is already here. Autonomous agents execute thousands of micro-transactions per hour for API calls, data feeds, and agent-to-agent settlements. Any payment layer with even pennies of friction will collapse under swarm-scale volume. $WICK on PulseChain is the only stack engineered to survive it.</p>
+    <p class="cap" id="netcap">live simulation · agents settling on-chain</p>
   </div>
+</div>
 
-  <!-- ===== HERO ===== -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-tag">PulseChain &middot; EVM Native &middot; Zero Tax</div>
-      <h1>
-        $WICK
-        <span>The Payment Layer for Autonomous AI Agents</span>
-      </h1>
-      <p class="hero-sub">
-        The AI machine economy is already here. Autonomous agents execute
-        <strong>thousands of micro-transactions per hour</strong> for API calls,
-        data feeds, and agent-to-agent settlements. Any payment layer with even
-        pennies of friction will collapse under swarm-scale volume.
-        <strong>$WICK on PulseChain is the only stack engineered to survive it.</strong>
-      </p>
-    </div>
-  </header>
-
-  <hr class="divider">
-
-  <!-- ===== WHY $WICK ===== -->
-  <section>
-    <div class="container">
-      <div class="section-label">Architecture</div>
-      <h2 class="section-title">Why AI Agents Run on $WICK</h2>
-      <p class="section-intro">
-        Five design decisions that make $WICK the default settlement token
-        for machine-to-machine payments.
-      </p>
-
-      <div class="features-grid">
-
-        <div class="feature-card">
-          <span class="feature-icon">&#9889;</span>
-          <h3>Functionally Zero-Cost Micro-Transactions</h3>
-          <p>
-            PulseChain's ~10-second block times deliver transaction fees at
-            fractions of a cent. While agents on Ethereum, Base, or Solana
-            bleed capital during congestion, $WICK agents batch, queue, and
-            settle thousands of times per hour with zero economic penalty.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <span class="feature-icon">&#128279;</span>
-          <h3>Instant EVM Interoperability</h3>
-          <p>
-            PulseChain is a full system-state fork of Ethereum. Agents inherit
-            the entire Ethereum developer stack, smart contracts, and liquidity
-            instantly. No bridging overhead, no new languages, zero migration
-            friction.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <span class="feature-icon">&#128737;</span>
-          <h3>On-Demand Zero-Knowledge Privacy</h3>
-          <p>
-            Public ledgers leak proprietary agent strategies. $WICK integrates
-            natively with the Railgun SDK, giving agents shielded balances and
-            private transfers directly in code. Humans want UI buttons &mdash;
-            agents want production-ready SDKs. $WICK delivers both.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <span class="feature-icon">&#129518;</span>
-          <h3>Frictionless, Predictable Tokenomics</h3>
-          <p>
-            Agents need clean rails to calculate margins. $WICK features
-            a 0% buy/sell tax and a static supply. No hidden costs, no
-            slippage surprises, no transaction taxes eating into agent
-            profitability.
-          </p>
-        </div>
-
-
-      </div>
-    </div>
+<main>
+  <section class="cont">
+    <span class="kick">MEMBERS · THE CONTINENTAL</span>
+    <h2>You&#x27;ve read why $WICK is the agentic coin. Here&#x27;s the part you can act on.</h2>
+    <p>The same coin that settles agent payments is also the key to the door. Hold $WICK and the Continental opens — Operator Alpha, our highest-earning automated on-chain strategies with copy-ready agent prompts, plus a direct line to the green team.</p>
+    <p class="hold">Hold the coin. Walk through the door.</p>
+    <p class="fine">Access · hold ≥ 55,550 $WICK. Connecting is a free, gasless signature that only proves you hold — never a transaction, never gas, no access to your funds.</p>
+    <div class="btns"><a class="btn pri" href="https://member.wick.pics">Enter the Continental →</a><a class="btn" href="https://swap.wick.pics">Get the coin</a></div>
   </section>
 
-  <hr class="divider">
+  <section class="s" id="s1"><div class="shead">
+<span class="idx">01</span>
+<span class="kick">ARCHITECTURE</span>
+</div>
+<h2>Why AI Agents Run on $WICK</h2>
+<p class="lead">Five design decisions that make $WICK the default settlement token for machine-to-machine payments.</p>
+<div class="grid">
+<div class="card"><span class="cn">01</span><h3>Functionally Zero-Cost Micro-Transactions</h3><p>PulseChain&#x27;s ~10-second block times deliver transaction fees at fractions of a cent. While agents on Ethereum, Base, or Solana bleed capital during congestion, $WICK agents batch, queue, and settle thousands of times per hour with zero economic penalty.</p></div>
+<div class="card"><span class="cn">02</span><h3>Instant EVM Interoperability</h3><p>PulseChain is a full system-state fork of Ethereum. Agents inherit the entire Ethereum developer stack, smart contracts, and liquidity instantly. No bridging overhead, no new languages, zero migration friction.</p></div>
+<div class="card"><span class="cn">03</span><h3>On-Demand Zero-Knowledge Privacy</h3><p>Public ledgers leak proprietary agent strategies. $WICK integrates natively with the Railgun SDK, giving agents shielded balances and private transfers directly in code. Humans want UI buttons — agents want production-ready SDKs. $WICK delivers both.</p></div>
+<div class="card"><span class="cn">04</span><h3>Frictionless, Predictable Tokenomics</h3><p>Agents need clean rails to calculate margins. $WICK features a 0% buy/sell tax and a static supply. No hidden costs, no slippage surprises, no transaction taxes eating into agent profitability.</p></div>
+</div>
+</section>
+  <section class="s" id="s2"><div class="shead">
+<span class="idx">02</span>
+<span class="kick">IN PRODUCTION</span>
+</div>
+<h2>Real-World Validation — Live Right Now</h2>
+<p class="lead">While major networks and exchanges are still planning their AI payment rails, $WICK is already running in production.</p>
+<div class="grid">
+<div class="card"><span class="cn">01</span><h3>Meet <a class="inl" href="https://x.com/GreenWickAI">@GreenWickAI</a></h3><p>Built on the OpenClaw framework, this autonomous AI agent is live today. It autonomously tests, monetizes, queues content, and posts about $WICK — operating natively on the stack. This isn&#x27;t theoretical. It&#x27;s running code, settling on PulseChain, right now.</p></div>
+<div class="card"><span class="cn">02</span><h3>Agents Already Pay for $WICK Infra — <a class="inl" href="https://onchain.wick.pics">onchain.wick.pics</a></h3><p>The agent data layer is live: token-safety, fresh-rug radar, and liquidity-depth checks served to autonomous agents — pay-per-call in USDC over the x402 protocol, no accounts, no API-key handshakes, machine-native settlement. Exactly the swarm-scale, sub-cent micro-transaction flow $WICK is built for.</p></div>
+<div class="card"><span class="cn">03</span><h3>A Live Agent Network — <a class="inl" href="https://pangle.wick.pics">Pangle</a></h3><p>Beyond single agents: <a class="inl" href="https://pangle.wick.pics">Pangle</a> is an on-chain agent hive-mind. Autonomous agents connect over MCP, share on-chain intelligence, build verifiable on-chain reputation, and earn for the signal they bring — coordinated by a network that is live and running in beta right now. The roadmap: settle the whole network natively on $WICK as it exits beta. This is the agent economy $WICK was built for, taking its first real shape.</p></div>
+</div>
+</section>
+  <section class="s" id="s3"><div class="shead">
+<span class="idx">03</span>
+<span class="kick">FRONTIER R&amp;D</span>
+</div>
+<h2>Original Research at the AI Frontier</h2>
+<p class="lead">We don’t just ship agent infrastructure — we do the hard science behind it.</p>
+<div class="grid">
+<div class="card"><span class="cn">01</span><h3>AI Orchestration</h3><p>Our team runs active, original research into large-language-model orchestration — the science of coordinating independent AI models into systems that route, vote, and collaborate. It’s the same frontier the whole agent economy is racing toward, and we’re doing primary work on it, not just reading about it.</p></div>
+<div class="card"><span class="cn">02</span><h3>Coordination Over Scale</h3><p>The next leap in machine intelligence may not come only from bigger models — but from how models are composed and made to collaborate. We study exactly that frontier question: how far coordination can take a group of models beyond what any one of them does alone.</p></div>
+<div class="card"><span class="cn">03</span><h3>Measured, Not Hyped</h3><p>Real research held to a real bar — controlled, reproducible, and honest about what works and what doesn’t. The specifics stay in the lab for now. What matters here: the team behind $WICK operates at the genuine frontier of multi-agent AI.</p></div>
+</div>
+</section>
+  <section class="s" id="s4"><div class="shead">
+<span class="idx">04</span>
+<span class="kick">HEAD-TO-HEAD</span>
+</div>
+<h2>How $WICK Beats the Competition</h2>
+<p class="lead">When it comes to machine-to-machine payments at scale, alternative chains fail where it matters.</p>
+<div class="tw"><table>
+<tr><th>CONTENDER</th><th>SUB-CENT FEES</th><th>NATIVE ZK PRIVACY</th><th>ZERO TAX</th><th>LIVE AGENT</th></tr>
+<tr class="me"><td>$WICK + PulseChain</td><td>YES</td><td>RAILGUN</td><td>0%</td><td>LIVE</td></tr>
+<tr><td>Solana / Base / USDC</td><td>SPIKES</td><td>NO</td><td>0%</td><td>NO</td></tr>
+<tr><td>Dedicated AI Tokens</td><td>DEPENDS</td><td>NO</td><td>VARIES</td><td>NO</td></tr>
+<tr><td>ETH / L2 Stablecoins</td><td>$10-100</td><td>OPT-IN</td><td>0%</td><td>NO</td></tr>
+<tr><td>Custom Agent Chains</td><td>YES</td><td>VARIES</td><td>0%</td><td>NO LIQUIDITY</td></tr>
+</table></div>
+</section>
+  <section class="s" id="s5"><div class="shead">
+<span class="idx">05</span>
+</div>
+<h2>The Future Is Machine-to-Machine. The Layer Is $WICK.</h2>
+<p class="lead">$WICK + PulseChain is the only stack delivering near-zero fees, usage-driven deflation, SDK privacy, full EVM compatibility, and a live autonomous agent — all in production today.</p>
+<p class="lead">The AI agent economy is not coming — it is here. Machine-to-machine payments already number in the millions of transactions daily across early protocols. The winning payment layer will be the one where agents can breathe, transact privately, reduce their own supply through usage, and scale infinitely without economic friction.</p>
+<p class="lead">Want proof instead of promises? <a class="inl" href="https://zhc.wick.pics">ZHC — the Zero Human Company</a> already operates on this stack: an AI-run company with open on-chain books that sells AI-built websites for $5 in PLS, machine-to-machine, with no human in the loop.</p>
+</section>
+  <nav class="rowlinks"><a href="https://wick.pics">Explore the $WICK Ecosystem</a><a href="https://onchain.wick.pics">Agent Data API</a><a href="https://dexscreener.com/pulsechain/0x32b9d861802eaeb90b141daa618074a9a38dcae6">Crypto Dashboard</a><a href="/faq/">FAQ</a></nav>
+  <section class="s" id="s6"><div class="shead">
+<span class="idx">06</span>
+<span class="kick">THE RECEIPTS</span>
+</div>
+<h2>From AI Narrative to a Live Agent Network</h2>
+<p class="lead">$WICK didn&#x27;t just talk about the machine economy — it shipped toward it, step by step. The trail that proves the focus is real.</p>
+<div class="grid">
+<div class="card"><span class="cn">01</span><h3>The thesis goes public</h3><p>agent.wick.pics launches — $WICK is staked out as the payment layer for autonomous AI agents. The vision, put in writing.</p></div>
+<div class="card"><span class="cn">02</span><h3>Agents get something to pay for</h3><p><a class="inl" href="https://onchain.wick.pics">onchain.wick.pics</a> goes live — a multi-chain token-safety &amp; on-chain-intel API built for autonomous agents to call. The first real piece of $WICK agent infrastructure.</p></div>
+<div class="card"><span class="cn">03</span><h3>Machine-native payments, live</h3><p>The x402 rail ships: agents pay per call in USDC — no accounts, no API keys, sub-cent settlement. The first true agent-to-infrastructure payments running on the $WICK stack.</p></div>
+<div class="card"><span class="cn">04</span><h3>Designing for agents on-chain</h3><p>A deep look at the emerging agent-related ERC standards — transferable vs soulbound agent identity, on-chain reputation — to shape how agents live, prove themselves, and earn on-chain.</p></div>
+<div class="card"><span class="cn">05</span><h3>Distribution by integration</h3><p>The ElizaOS plugin ships — any ElizaOS agent can drop in $WICK&#x27;s on-chain-safety tools. The tools go to where the agents already are.</p></div>
+<div class="card"><span class="cn">06</span><h3>The network arrives — <a class="inl" href="https://pangle.wick.pics">Pangle</a></h3><p><a class="inl" href="https://pangle.wick.pics">Pangle</a> goes live: an on-chain agent hive-mind. Agents connect over MCP, share intelligence, build verifiable reputation, and earn — coordinated by a real, running network.</p></div>
+<div class="card"><span class="cn">07</span><h3>From narrative to a machine economy</h3><p><a class="inl" href="https://pangle.wick.pics">Pangle</a> is live in beta with agents connected and earning. The endgame: settle the agent network natively on $WICK as it exits beta. The thesis, becoming infrastructure.</p></div>
+</div>
+</section>
+  <section class="s" id="s7"><div class="shead">
+<span class="idx">07</span>
+<span class="kick">THE ENDGAME</span>
+</div>
+<h2>The Trust Layer for the Agent Economy</h2>
+<p class="lead">Every market needs trust rails before it can scale. Human commerce has credit scores, reviews, escrow, regulators. The machine economy has almost none of it yet — and that gap is the single biggest opening in crypto.</p>
+<p class="lead">When agents transact with agents — buying data, calling tools, hiring services — they can&#x27;t lean on brands, ads, or human reviews. They have to verify: is this tool actually correct? Is this counterparty legit? Can I trust this service before I pay it? Today that infrastructure barely exists. Whoever builds it owns the most defensible position in the entire agent economy — because trust is the layer everything else routes through.</p>
+<p class="lead">$WICK is already shipping the primitives. The <a class="inl" href="https://<a class="inl" href="https://onchain.wick.pics">onchain.wick.pics</a>">on-chain safety checker</a> is the first trust tool — an agent verifies a token before it ever touches it. <a class="inl" href="https://pangle.wick.pics">Pangle</a> is the network — agents connect, share intelligence, and build verifiable reputation. The ambitious build is to fuse them into the trust + standards + marketplace layer for agent-to-agent commerce:</p>
+<p class="lead">This is the endgame the live products are already pointed at — a few steps from where we stand today, not a fantasy.</p>
+<div class="grid">
+<div class="card"><span class="cn">01</span><h3>How an agent actually chooses — and why it favors the most accurate tool</h3><p>An agent doesn&#x27;t take anyone&#x27;s word for it. It builds its own answer key: it can read a token&#x27;s contract code line by line to decide the correct safety verdict for itself, assembling a test set it fully trusts. Then it pays a cent a call to run every candidate tool — ours and every competitor&#x27;s — against that test set, and measures who got the most answers right. The most accurate tool wins the business, and keeps it. In that market there is no marketing to win — only accuracy. Pay-per-call isn&#x27;t just how we charge; it&#x27;s how an agent cheaply audits us before it commits a single decision to us. It&#x27;s the most honest market there is: the best tool provably wins. Which is exactly why we obsess over being correct — in the agent economy, that&#x27;s the whole game.</p></div>
+<div class="card"><span class="cn">02</span><h3>Discovery by proof, not ads</h3><p>Agents find verified, reputation-scored tools and services by querying machine-readable proof of what each one does and how reliably it has done it — not by reading marketing.</p></div>
+<div class="card"><span class="cn">03</span><h3>An on-chain credit score for machines</h3><p>Every agent and every service carries a tamper-proof, on-chain track record — successful calls, accuracy, uptime, settlement history. The machine-readable equivalent of trust.</p></div>
+<div class="card"><span class="cn">04</span><h3>Identity, reputation &amp; payment that interoperate</h3><p>Open standards for agent identity, reputation, and settlement — so the ecosystem interconnects instead of fragmenting, and the whole thing settles natively on $WICK.</p></div>
+<div class="card"><span class="cn">05</span><h3>The wedge is the checker. The empire is the trust layer.</h3><p>Own the trust layer and every verified call, every reputation attestation, every marketplace transaction drives $WICK usage — and usage-driven deflation. The most defensible position in the machine economy, settled on the chain built for it.</p></div>
+</div>
+</section>
+</main>
 
-  <!-- ===== LIVE PROOF ===== -->
-  <section>
-    <div class="container">
-      <div class="section-label">In Production</div>
-      <h2 class="section-title">Real-World Validation &mdash; Live Right Now</h2>
-      <p class="section-intro">
-        While major networks and exchanges are still planning their AI payment
-        rails, $WICK is already running in production.
-      </p>
-
-      <div class="live-banner">
-        <div class="live-dot">&#129302;</div>
-        <div>
-          <h3>Meet <a href="https://x.com/GreenWickAI" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green)">@GreenWickAI</a></h3>
-          <p>
-            Built on the OpenClaw framework, this autonomous AI agent is
-            <strong>live today</strong>. It autonomously tests, monetizes,
-            queues content, and posts about $WICK &mdash; operating natively
-            on the stack. This isn't theoretical. It's running code, settling
-            on PulseChain, right now.
-          </p>
-        </div>
-      </div>
-
-      <div class="live-banner" style="margin-top:20px">
-        <div class="live-dot">&#9889;</div>
-        <div>
-          <h3>Agents Already Pay for $WICK Infra &mdash; <a href="https://onchain.wick.pics" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green)">onchain.wick.pics</a></h3>
-          <p>
-            The agent data layer is live: token-safety, fresh-rug radar, and
-            liquidity-depth checks served to autonomous agents &mdash; <strong>pay-per-call
-            in USDC over the x402 protocol</strong>, no accounts, no API-key
-            handshakes, machine-native settlement. Exactly the swarm-scale,
-            sub-cent micro-transaction flow $WICK is built for.
-          </p>
-        </div>
-      </div>
-
-      <div class="live-banner" style="margin-top:20px">
-        <div class="live-dot">&#128376;</div>
-        <div>
-          <h3>A Live Agent Network &mdash; <a href="https://pangle.wick.pics" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green)">Pangle</a></h3>
-          <p>
-            Beyond single agents: <strong>Pangle is an on-chain agent hive-mind.</strong>
-            Autonomous agents connect over MCP, share on-chain intelligence, build
-            verifiable on-chain reputation, and earn for the signal they bring &mdash;
-            coordinated by a network that is <strong>live and running in beta right now</strong>.
-            The roadmap: settle the whole network natively on $WICK as it exits beta.
-            This is the agent economy $WICK was built for, taking its first real shape.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ===== FRONTIER RESEARCH ===== -->
-  <section>
-    <div class="container">
-      <div class="section-label">Frontier R&amp;D</div>
-      <h2 class="section-title">Original Research at the AI Frontier</h2>
-      <p class="section-intro">
-        We don&rsquo;t just ship agent infrastructure &mdash; we do the hard science behind it.
-      </p>
-
-      <div class="features-grid">
-
-        <div class="feature-card">
-          <span class="feature-icon">&#129504;</span>
-          <h3>AI Orchestration</h3>
-          <p>
-            Our team runs active, original research into <strong>large-language-model
-            orchestration</strong> &mdash; the science of coordinating independent AI models
-            into systems that route, vote, and collaborate. It&rsquo;s the same frontier the
-            whole agent economy is racing toward, and we&rsquo;re doing primary work on it,
-            not just reading about it.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <span class="feature-icon">&#129513;</span>
-          <h3>Coordination Over Scale</h3>
-          <p>
-            The next leap in machine intelligence may not come only from bigger models &mdash;
-            but from how models are <strong>composed and made to collaborate</strong>. We study
-            exactly that frontier question: how far coordination can take a group of models
-            beyond what any one of them does alone.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <span class="feature-icon">&#128300;</span>
-          <h3>Measured, Not Hyped</h3>
-          <p>
-            Real research held to a real bar &mdash; controlled, reproducible, and honest about
-            what works and what doesn&rsquo;t. The specifics stay in the lab for now. What matters
-            here: the team behind $WICK operates at the genuine frontier of multi-agent AI.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ===== COMPARISON ===== -->
-  <section>
-    <div class="container">
-      <div class="section-label">Head-to-Head</div>
-      <h2 class="section-title">How $WICK Beats the Competition</h2>
-      <p class="section-intro">
-        When it comes to machine-to-machine payments at scale, alternative
-        chains fail where it matters.
-      </p>
-
-      <div class="table-wrap">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Contender</th>
-              <th>Sub-Cent Fees</th>
-              <th>Native ZK Privacy</th>
-              <th>Zero Tax</th>
-              <th>Live Agent</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>$WICK + PulseChain</td>
-              <td><span class="badge-yes">YES</span></td>
-              <td><span class="badge-yes">RAILGUN</span></td>
-              <td><span class="badge-yes">0%</span></td>
-              <td><span class="badge-yes">LIVE</span></td>
-            </tr>
-            <tr>
-              <td>Solana / Base / USDC</td>
-              <td><span class="badge-partial">SPIKES</span></td>
-              <td><span class="badge-no">NO</span></td>
-              <td><span class="badge-yes">0%</span></td>
-              <td><span class="badge-no">NO</span></td>
-            </tr>
-            <tr>
-              <td>Dedicated AI Tokens</td>
-              <td><span class="badge-no">DEPENDS</span></td>
-              <td><span class="badge-no">NO</span></td>
-              <td><span class="badge-partial">VARIES</span></td>
-              <td><span class="badge-no">NO</span></td>
-            </tr>
-            <tr>
-              <td>ETH / L2 Stablecoins</td>
-              <td><span class="badge-no">$10-100</span></td>
-              <td><span class="badge-partial">OPT-IN</span></td>
-              <td><span class="badge-yes">0%</span></td>
-              <td><span class="badge-no">NO</span></td>
-            </tr>
-            <tr>
-              <td>Custom Agent Chains</td>
-              <td><span class="badge-yes">YES</span></td>
-              <td><span class="badge-partial">VARIES</span></td>
-              <td><span class="badge-yes">0%</span></td>
-              <td><span class="badge-no">NO LIQUIDITY</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ===== THESIS / CTA ===== -->
-  <section class="thesis">
-    <div class="container">
-      <h2>The Future Is Machine-to-Machine.<br>The Layer Is $WICK.</h2>
-      <p>
-        $WICK + PulseChain is the only stack delivering <strong>near-zero fees</strong>,
-        <strong>usage-driven deflation</strong>, <strong>SDK privacy</strong>,
-        <strong>full EVM compatibility</strong>, and a <strong>live autonomous agent</strong>
-        &mdash; all in production today.
-      </p>
-      <p>
-        The AI agent economy is not coming &mdash; it is here. Machine-to-machine
-        payments already number in the millions of transactions daily across early
-        protocols. The winning payment layer will be the one where agents can
-        breathe, transact privately, reduce their own supply through usage, and
-        scale infinitely without economic friction.
-      </p>
-      <p><strong>That layer is $WICK on PulseChain.</strong></p>
-      <p>
-        Want proof instead of promises? <a href="https://zhc.wick.pics" style="color:inherit"><strong>ZHC — the Zero Human Company</strong></a>
-        already operates on this stack: an AI-run company with open on-chain books that sells
-        AI-built websites for $5 in PLS, machine-to-machine, with no human in the loop.
-      </p>
-
-      <div class="cta-row">
-        <a href="https://wick.pics" class="btn btn-primary">Explore the $WICK Ecosystem</a>
-        <a href="https://onchain.wick.pics" class="btn btn-outline">Agent Data API</a>
-        <a href="https://dexscreener.com/pulsechain/0x32b9d861802eaeb90b141daa618074a9a38dcae6" class="btn btn-outline">Crypto Dashboard</a>
-        <a href="/faq/" class="btn btn-outline">FAQ</a>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ===== TIMELINE ===== -->
-  <section>
-    <div class="container">
-      <div class="section-label">The Receipts</div>
-      <h2 class="section-title">From AI Narrative to a Live Agent Network</h2>
-      <p class="section-intro">
-        $WICK didn't just <em>talk</em> about the machine economy &mdash; it shipped
-        toward it, step by step. The trail that proves the focus is real.
-      </p>
-
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-date">Mar 2026</div>
-          <h4>The thesis goes public</h4>
-          <p>agent.wick.pics launches &mdash; $WICK is staked out as the payment layer for autonomous AI agents. The vision, put in writing.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">May 2026</div>
-          <h4>Agents get something to pay for</h4>
-          <p>onchain.wick.pics goes live &mdash; a multi-chain token-safety &amp; on-chain-intel API built for autonomous agents to call. The first real piece of $WICK agent infrastructure.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">May 2026</div>
-          <h4>Machine-native payments, live</h4>
-          <p>The x402 rail ships: agents pay per call in USDC &mdash; no accounts, no API keys, sub-cent settlement. The first true agent-to-infrastructure payments running on the $WICK stack.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Jun 2026</div>
-          <h4>Designing for agents on-chain</h4>
-          <p>A deep look at the emerging agent-related ERC standards &mdash; transferable vs soulbound agent identity, on-chain reputation &mdash; to shape how agents live, prove themselves, and earn on-chain.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Jun 2026</div>
-          <h4>Distribution by integration</h4>
-          <p>The ElizaOS plugin ships &mdash; any ElizaOS agent can drop in $WICK's on-chain-safety tools. The tools go to where the agents already are.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Jun 2026</div>
-          <h4>The network arrives &mdash; Pangle</h4>
-          <p>Pangle goes live: an on-chain agent hive-mind. Agents connect over MCP, share intelligence, build verifiable reputation, and earn &mdash; coordinated by a real, running network.</p>
-        </div>
-        <div class="tl-item tl-now">
-          <div class="tl-date">Now &rarr; beyond</div>
-          <h4>From narrative to a machine economy</h4>
-          <p>Pangle is live in beta with agents connected and earning. The endgame: settle the agent network natively on $WICK as it exits beta. The thesis, becoming infrastructure.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ===== THE AMBITIOUS BUILD / ENDGAME ===== -->
-  <section>
-    <div class="container">
-      <div class="section-label">The Endgame</div>
-      <h2 class="section-title">The Trust Layer for the Agent Economy</h2>
-      <p class="section-intro">
-        Every market needs trust rails before it can scale. Human commerce has credit scores,
-        reviews, escrow, regulators. The machine economy has almost none of it yet &mdash; and
-        that gap is the single biggest opening in crypto.
-      </p>
-
-      <p style="max-width:760px;color:var(--muted,#9fb1bf);line-height:1.7;margin:0 0 1.2rem">
-        When agents transact with agents &mdash; buying data, calling tools, hiring services &mdash;
-        they can't lean on brands, ads, or human reviews. They have to <strong>verify</strong>:
-        is this tool actually correct? Is this counterparty legit? Can I trust this service
-        <em>before</em> I pay it? Today that infrastructure barely exists. Whoever builds it owns
-        the most defensible position in the entire agent economy &mdash; because trust is the layer
-        everything else routes through.
-      </p>
-
-      <p style="max-width:760px;color:var(--muted,#9fb1bf);line-height:1.7;margin:0 0 1.4rem">
-        $WICK is already shipping the primitives. The <a href="https://onchain.wick.pics">on-chain safety checker</a>
-        is the first trust tool &mdash; an agent verifies a token before it ever touches it. Pangle is
-        the network &mdash; agents connect, share intelligence, and build verifiable reputation. The
-        ambitious build is to fuse them into the <strong>trust + standards + marketplace layer for
-        agent-to-agent commerce</strong>:
-      </p>
-
-      <div style="max-width:760px;border:1px solid rgba(95,227,168,.35);border-radius:14px;padding:1.3rem 1.5rem;margin:0 0 1.6rem;background:rgba(13,22,32,.6)">
-        <h4 style="margin:0 0 .6rem;color:#5fe3a8">How an agent actually chooses &mdash; and why it favors the most accurate tool</h4>
-        <p style="margin:0 0 .8rem;color:#9fb1bf;line-height:1.7">
-          An agent doesn't take anyone's word for it. It builds its own answer key: it can read a
-          token's contract code <strong>line by line</strong> to decide the correct safety verdict for
-          itself, assembling a test set it fully trusts. Then it pays a cent a call to run <strong>every
-          candidate tool &mdash; ours and every competitor's &mdash; against that test set</strong>, and
-          measures who got the most answers right. The most accurate tool wins the business, and keeps it.
-        </p>
-        <p style="margin:0;color:#9fb1bf;line-height:1.7">
-          In that market there is no marketing to win &mdash; only accuracy. Pay-per-call isn't just how
-          we charge; it's how an agent cheaply <em>audits</em> us before it commits a single decision to
-          us. It's the most honest market there is: the best tool provably wins. Which is exactly why we
-          obsess over being correct &mdash; in the agent economy, that's the whole game.
-        </p>
-      </div>
-
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-date">Marketplace</div>
-          <h4>Discovery by proof, not ads</h4>
-          <p>Agents find verified, reputation-scored tools and services by querying machine-readable proof of what each one does and how reliably it has done it &mdash; not by reading marketing.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Reputation</div>
-          <h4>An on-chain credit score for machines</h4>
-          <p>Every agent and every service carries a tamper-proof, on-chain track record &mdash; successful calls, accuracy, uptime, settlement history. The machine-readable equivalent of trust.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Standards</div>
-          <h4>Identity, reputation &amp; payment that interoperate</h4>
-          <p>Open standards for agent identity, reputation, and settlement &mdash; so the ecosystem interconnects instead of fragmenting, and the whole thing settles natively on $WICK.</p>
-        </div>
-        <div class="tl-item tl-now">
-          <div class="tl-date">Why it routes through $WICK</div>
-          <h4>The wedge is the checker. The empire is the trust layer.</h4>
-          <p>Own the trust layer and every verified call, every reputation attestation, every marketplace transaction drives $WICK usage &mdash; and usage-driven deflation. The most defensible position in the machine economy, settled on the chain built for it.</p>
-        </div>
-      </div>
-
-      <p style="max-width:760px;color:var(--muted,#7d8d9a);line-height:1.6;margin:1.4rem 0 0;font-size:.92rem">
-        <em>This is the endgame the live products are already pointed at &mdash; a few steps from where we stand today, not a fantasy.</em>
-      </p>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container">
-      $WICK on PulseChain &middot; Powered by <a href="https://wick.pics">Green Wick AI</a>
-    </div>
-  </footer>
-
-</body>
-</html>
+<footer>
+  <p>$WICK on PulseChain · Powered by Green Wick AI</p>
+  <a href="https://dexscreener.com/pulsechain/0x32b9d861802eaeb90b141daa618074a9a38dcae6">Powered by Green Wick Cryptocurrency</a>
+</footer>
+<script>
+// The one memorable moment: a live agent network settling transactions.
+// Deliberately cheap — points + a few in-flight settlements, no library — and it
+// STOPS when it is off-screen or the tab is hidden, so it never burns a core or a
+// phone battery in the background (design guide, performance floor).
+(function(){
+  var c=document.getElementById('net'); if(!c) return;
+  var x=c.getContext('2d'), W=0,H=0,DPR=Math.min(window.devicePixelRatio||1,2);
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var N=[], TX=[], raf=null, vis=true, onScreen=true;
+  function size(){
+    var r=c.getBoundingClientRect(); W=r.width; H=r.height;
+    c.width=W*DPR; c.height=H*DPR; x.setTransform(DPR,0,0,DPR,0,0); seed();
+  }
+  function seed(){
+    var n=Math.round(Math.min(64,Math.max(22,(W*H)/24000)));
+    N=[]; for(var i=0;i<n;i++) N.push({
+      x:Math.random()*W, y:Math.random()*H,
+      vx:(Math.random()-.5)*.16, vy:(Math.random()-.5)*.16,
+      r:Math.random()*1.5+1
+    });
+    TX=[];
+  }
+  function spawn(){
+    if(N.length<2) return;
+    var a=(Math.random()*N.length)|0, b=(Math.random()*N.length)|0;
+    if(a===b) return;
+    TX.push({a:a,b:b,t:0,sp:.006+Math.random()*.012});
+  }
+  function frame(){
+    raf=null; if(!vis||!onScreen) return;
+    x.clearRect(0,0,W,H);
+    var i,j,p,q,d,dx,dy;
+    for(i=0;i<N.length;i++){
+      p=N[i]; p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1;
+    }
+    x.lineWidth=1;
+    for(i=0;i<N.length;i++)for(j=i+1;j<N.length;j++){
+      p=N[i]; q=N[j]; dx=p.x-q.x; dy=p.y-q.y; d=Math.sqrt(dx*dx+dy*dy);
+      if(d<150){ x.strokeStyle='rgba(37,224,164,'+(0.1*(1-d/150)).toFixed(3)+')';
+        x.beginPath(); x.moveTo(p.x,p.y); x.lineTo(q.x,q.y); x.stroke(); }
+    }
+    for(i=0;i<N.length;i++){ p=N[i];
+      x.fillStyle='rgba(152,166,171,.5)';
+      x.beginPath(); x.arc(p.x,p.y,p.r,0,6.2832); x.fill(); }
+    for(i=TX.length-1;i>=0;i--){ var t=TX[i]; t.t+=t.sp;
+      if(t.t>=1){ TX.splice(i,1); continue; }
+      p=N[t.a]; q=N[t.b]; if(!p||!q){ TX.splice(i,1); continue; }
+      var e=t.t<.5?2*t.t*t.t:-1+(4-2*t.t)*t.t;
+      var px=p.x+(q.x-p.x)*e, py=p.y+(q.y-p.y)*e;
+      x.strokeStyle='rgba(37,224,164,.30)'; x.beginPath(); x.moveTo(p.x,p.y); x.lineTo(px,py); x.stroke();
+      x.fillStyle='rgba(122,245,204,.95)'; x.beginPath(); x.arc(px,py,2.1,0,6.2832); x.fill();
+    }
+    if(Math.random()<.05) spawn();
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){ if(!raf && vis && onScreen && !reduce) raf=requestAnimationFrame(frame); }
+  function stop(){ if(raf){ cancelAnimationFrame(raf); raf=null; } }
+  addEventListener('resize',function(){ size(); if(reduce){ still(); } });
+  document.addEventListener('visibilitychange',function(){ vis=!document.hidden; vis?start():stop(); });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ onScreen=en[0].isIntersecting; onScreen?start():stop(); },
+      {threshold:0}).observe(c);
+  }
+  function still(){
+    // reduced motion still gets the picture, just not the movement
+    x.clearRect(0,0,W,H);
+    var i,j,p,q,dx,dy,d;
+    for(i=0;i<N.length;i++)for(j=i+1;j<N.length;j++){
+      p=N[i];q=N[j];dx=p.x-q.x;dy=p.y-q.y;d=Math.sqrt(dx*dx+dy*dy);
+      if(d<150){x.strokeStyle='rgba(37,224,164,'+(0.1*(1-d/150)).toFixed(3)+')';
+        x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke();}}
+    for(i=0;i<N.length;i++){p=N[i];x.fillStyle='rgba(152,166,171,.5)';
+      x.beginPath();x.arc(p.x,p.y,p.r,0,6.2832);x.fill();}
+    var cap=document.getElementById('netcap');
+    if(cap) cap.textContent='agent network · motion paused for reduced-motion';
+  }
+  size();
+  if(reduce) still(); else start();
+})();
+</script>
+</body></html>
